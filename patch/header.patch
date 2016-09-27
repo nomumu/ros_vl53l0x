@@ -1,0 +1,70 @@
+--- VL53L0X.h	2016-09-27 15:22:18.787459240 +0000
++++ VL53L0X-edison.h	2016-09-27 15:22:40.707704119 +0000
+@@ -1,9 +1,10 @@
+ #ifndef VL53L0X_h
+ #define VL53L0X_h
+ 
+-#include <Arduino.h>
++#include <time.h>// clock_gettime
++#include "mraa.hpp"/* Copyright 2014 Intel Corporation. MIT license(https://raw.githubusercontent.com/intel-iot-devkit/mraa/master/COPYING) */
+ 
+-class VL53L0X
++class VL53L0X : public mraa::I2c
+ {
+   public:
+     // register addresses from API vl53l0x_device.h (ordered as listed there)
+@@ -99,14 +100,14 @@
+     VL53L0X(void);
+ 
+     void setAddress(uint8_t new_addr);
+-    inline uint8_t getAddress(void) { return address; }
++    inline uint8_t getAddress(void) { return slave_address; }
+ 
+     bool init(bool io_2v8 = true);
+ 
+-    void writeReg(uint8_t reg, uint8_t value);
++    void writeReg8Bit(uint8_t reg, uint8_t value);
+     void writeReg16Bit(uint8_t reg, uint16_t value);
+     void writeReg32Bit(uint8_t reg, uint32_t value);
+-    uint8_t readReg(uint8_t reg);
++    uint8_t readReg8Bit(uint8_t reg);
+     uint16_t readReg16Bit(uint8_t reg);
+     uint32_t readReg32Bit(uint8_t reg);
+ 
+@@ -138,7 +139,7 @@
+ 
+     struct SequenceStepEnables
+     {
+-      boolean tcc, msrc, dss, pre_range, final_range;
++      bool tcc, msrc, dss, pre_range, final_range;
+     };
+ 
+     struct SequenceStepTimeouts
+@@ -149,7 +150,7 @@
+       uint32_t msrc_dss_tcc_us,    pre_range_us,    final_range_us;
+     };
+ 
+-    uint8_t address;
++    uint8_t slave_address;
+     uint16_t io_timeout;
+     bool did_timeout;
+     uint16_t timeout_start_ms;
+@@ -170,6 +171,18 @@
+     static uint32_t timeoutMicrosecondsToMclks(uint32_t timeout_period_us, uint8_t vcsel_period_pclks);
+ };
+ 
++static uint16_t millis( void )
++{
++  struct timespec t;
++  uint16_t result = 0;
++
++  if( clock_gettime( CLOCK_MONOTONIC, &t ) == 0)
++  {
++    result = (uint16_t)((t.tv_sec * 1000) + (t.tv_nsec / 1000000));
++  }
++  return result;
++}
++
+ #endif
+ 
+ 
