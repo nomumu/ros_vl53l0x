@@ -1,43 +1,43 @@
 # ros_vl53l0x
 
-‚±‚»‚±‚»’c‚ª”­s‚·‚é“¯luROS‚Å‚Í‚¶‚ß‚éƒzƒr[ƒƒ{ƒbƒgv‚ÌƒTƒ“ƒvƒ‹ƒR[ƒh‚Å‚·D
-This is a sample code of "ROS de hajimeru hobby robot".
-VL53L0X(pololu)‚ğg—p‚µ‚Ä‹——£‚ğ”zM‚·‚é‚½‚ß‚ÌROSƒpƒbƒP[ƒW‚Å‚·D
-It is a ros package for delivering distance by the VL53L0X(pololu).
-‚±‚ÌƒpƒbƒP[ƒW‚ÍIntel Edisonã‚Å“®ì‚·‚éI2C‚ÆROS‚Ì‚½‚ß‚Éì¬‚³‚ê‚Ä‚¢‚Ü‚·B
-This package has been created for the I2C and ROS that runs on Intel Edison.
+ã“ãã“ãå›£ãŒç™ºè¡Œã™ã‚‹åŒäººèªŒã€ŒROSã§ã¯ã˜ã‚ã‚‹ãƒ›ãƒ“ãƒ¼ãƒ­ãƒœãƒƒãƒˆã€ã®ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰ã§ã™ï¼  
+This is a sample code of "ROS de hajimeru hobby robot".  
+VL53L0X(pololu)ã‚’ä½¿ç”¨ã—ã¦è·é›¢ã‚’é…ä¿¡ã™ã‚‹ãŸã‚ã®ROSãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã§ã™ï¼  
+It is a ros package for delivering distance by the VL53L0X(pololu).  
+ã“ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã¯Intel Edisonä¸Šã§å‹•ä½œã™ã‚‹I2Cã¨ROSã®ãŸã‚ã«ä½œæˆã•ã‚Œã¦ã„ã¾ã™ï¼  
+This package has been created for the I2C and ROS that runs on Intel Edison.  
 
 ##Setup
-‚±‚ÌƒpƒbƒP[ƒW‚Í‘¼‚Ìƒuƒ‰ƒ“ƒ`‚©‚çƒ\[ƒXƒR[ƒh‚ğæ“¾‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
-This package need to obtain the source code from the other branch.
-Ÿ‚Ì‚æ‚¤‚ÉƒZƒbƒgƒAƒbƒv‚ğÀs‚µ‚Ü‚·B
-Run the setup as follows.
-    $ cd catkin_ws/src
-    catkin_ws/src$ git clone https://github.com/nomumu/ros_vl53l0x.git
-    catkin_ws/src$ cd ros_vl53l0x
-    catkin_ws/src/ros_vl53l0x$ ./setup
-    catkin_ws/src/ros_vl53l0x$ cd ../../
-    catkin_ws$ catkin_make
+ã“ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã¯ä»–ã®ãƒ–ãƒ©ãƒ³ãƒã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼  
+This package need to obtain the source code from the other branch.  
+æ¬¡ã®ã‚ˆã†ã«ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚  
+Run the setup as follows.  
+    $ cd catkin_ws/src  
+    catkin_ws/src$ git clone https://github.com/nomumu/ros_vl53l0x.git  
+    catkin_ws/src$ cd ros_vl53l0x  
+    catkin_ws/src/ros_vl53l0x$ ./setup  
+    catkin_ws/src/ros_vl53l0x$ cd ../../  
+    catkin_ws$ catkin_make  
 
 ##Usage
-I2C‚ğg—p‚·‚é‚½‚ß‚É‚Íroot‚ÅÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-You need to run as root in order to use the I2C.
-‚±‚ê‚ÍÀsƒRƒ}ƒ“ƒh‚Ì—á‚Å‚·B
-It is execution command example.
-    catkin_ws$ sudo su
-    catkin_ws# LD_LIBRARY_PATH=/usr/local/lib/i386-linux-gnu
-    catkin_ws# export LD_LIBRARY_PATH
-    catkin_ws# rosrun ros_vl53l0x ros_vl53l0x
+I2Cã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã«ã¯rootã§å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼  
+You need to run as root in order to use the I2C.  
+ã“ã‚Œã¯å®Ÿè¡Œã‚³ãƒãƒ³ãƒ‰ã®ä¾‹ã§ã™ï¼  
+It is execution command example.  
+    catkin_ws$ sudo su  
+    catkin_ws# LD_LIBRARY_PATH=/usr/local/lib/i386-linux-gnu  
+    catkin_ws# export LD_LIBRARY_PATH  
+    catkin_ws# rosrun ros_vl53l0x ros_vl53l0x  
 
-ˆÈ‰º‚Ìƒpƒ‰ƒ[ƒ^İ’è‚ª—˜—p‰Â”\‚Å‚·B
-The following parameter settings are available.
-    rosparam set /ros_vl53l0x/frame_id  (string)
-    rosparam set /ros_vl53l0x/period_ms (integer)
+ä»¥ä¸‹ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®šãŒåˆ©ç”¨å¯èƒ½ã§ã™ã€‚  
+The following parameter settings are available.  
+    rosparam set /ros_vl53l0x/frame_id  (string)  
+    rosparam set /ros_vl53l0x/period_ms (integer)  
 
-‚±‚ÌƒpƒbƒP[ƒW‚ÍŸ‚ÌƒgƒsƒbƒN‚ğ”zM‚µ‚Ü‚·B
-This package publish the following topics.
-    /ros_vl53l0x/Range
+ã“ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã¯æ¬¡ã®ãƒˆãƒ”ãƒƒã‚¯ã‚’é…ä¿¡ã—ã¾ã™ï¼  
+This package publish the following topics.  
+    /ros_vl53l0x/Range  
 
 ##Links
-[pololu]: https://www.pololu.com/product/2490/ "Pololu VL53L0X"
-[arduino]: https://github.com/pololu/vl53l0x-arduino "VL53L0x-arduino"
+Pololu VL53L0X <https://www.pololu.com/product/2490/>  
+VL53L0x-arduino <https://github.com/pololu/vl53l0x-arduino>  
