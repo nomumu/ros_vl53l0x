@@ -30,6 +30,7 @@ It is execution command example.
     catkin_ws$ sudo su  
     catkin_ws# LD_LIBRARY_PATH=/usr/local/lib/i386-linux-gnu  
     catkin_ws# export LD_LIBRARY_PATH  
+    catkin_ws# source devel/setup.sh
     catkin_ws# rosrun ros_vl53l0x ros_vl53l0x  
 
 以下のパラメータ設定が利用可能です。  
