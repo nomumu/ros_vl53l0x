@@ -43,10 +43,10 @@
  // mode.
  bool VL53L0X::init(bool io_2v8)
  {
-+  mraa_result_t res;
++  mraa::Result res;
 +
 +  res = address( slave_address );
-+  if( res != MRAA_SUCCESS )
++  if( res != mraa::SUCCESS )
 +  {
 +    printf("I2C fatal error.\n");
 +    return false;
@@ -428,8 +428,7 @@
  // Read a 32-bit register
  uint32_t VL53L0X::readReg32Bit(uint8_t reg)
  {
--  uint16_t value;
-+  uint32_t value;
+   uint32_t value;
  
 -  Wire.beginTransmission(address);
 -  Wire.write(reg);
